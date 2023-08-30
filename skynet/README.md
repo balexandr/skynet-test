@@ -4,6 +4,21 @@ Project creation. I made sure to remove a lot of the unnecessary files as this i
 LiveView or any styling.
 `mix phx.new skynet --no-html --no-live --no-assets --no-dashboard --no-ecto --no-mailer`
 
+Step 2
+Configure the Skynet Server to start on application start and build the actual server module.
+This was an interesting problem made fun by picturing my code creating robots and having them possibly be destroyed.
+
+The first thing I did was create the basic functions to handle creating, killing, and listing them all out. 
+Had to do a quick Google search on how to keep the IDs from duplicating (only minor setback here)
+
+Second, I wanted to write the functions that would get called repeatably using `handle_info` and triggering them
+with a `Process.send_after()`. After that was triggered on a manual terminator build, I added the conditional logic
+to kill or reproduce a terminator but the process was still somewhat manual. The only other setback I ran into was getting all of this to
+run in a recurring loop from the get-go. After a bit of time, I figured out that making sure those `maybe_` functions had to be triggered in the `init()`.
+After adding some fun `IO.inspect()` I was finally able to witness the end of the world with the reproduction/destruction of terminators.
+However, once in a while, the first terminator would get killed before it could be reproduced so I threw in a conditional to keep the process alive.
+Lastly, I added the `@spec` and `@impl` tags.
+
 
 
 

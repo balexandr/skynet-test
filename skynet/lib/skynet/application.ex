@@ -13,9 +13,11 @@ defmodule Skynet.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Skynet.PubSub},
       # Start the Endpoint (http/https)
-      SkynetWeb.Endpoint
+      SkynetWeb.Endpoint,
       # Start a worker by calling: Skynet.Worker.start_link(arg)
       # {Skynet.Worker, arg},
+      # Start Evil Skynet Server
+      {Skynet.Server, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
