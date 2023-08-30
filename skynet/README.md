@@ -19,7 +19,9 @@ After adding some fun `IO.inspect()` I was finally able to witness the end of th
 However, once in a while, the first terminator would get killed before it could be reproduced so I threw in a conditional to keep the process alive.
 Lastly, I added the `@spec` and `@impl` tags.
 
-
+Step 3
+Updated the router to have the GET POST and DELETE routes. This part was relatively easy because I left it fairly barebones. I spent most of the
+time on the Server aspect of the test. I followed these up with very simple controller functions and barebone tests
 
 
 
